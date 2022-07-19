@@ -120,7 +120,7 @@ def evaluate(model, test_dataloader, epoch, val_writer, best_acc):
     return best_acc
 
 def worker(args):
-    log_dir = os.path.join(args.log_dir, args.dataset, args.arch)
+    log_dir = os.path.join(args.log_dir, args.dataset, args.arch, args.desc)
     train_writer, val_writer = None, None
     if dist.get_rank() == 0:
         os.makedirs(log_dir, exist_ok=True)
@@ -165,7 +165,7 @@ def worker(args):
                     "epoch": epoch,
                     "state_dict": model.state_dict(),
                 },
-                os.path.join(log_dir, "checkpoint.pkl"),
+                os.path.join(log_dir, f'epoch{epoch}_ckpt.pkl'),
             )
 
 def main():
