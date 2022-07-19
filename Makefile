@@ -1,14 +1,14 @@
 train_baseline_cifar100_resnet18:
-	python3 train.py --dataset CIFAR100 --data_dir cifar100_data --arch CIFAR_ResNet18 --loss_lambda 0.0 --alpha 0.0 --dense --batch_size 128 --epochs 200 --desc baseline
+	python3 train.py --dataset CIFAR100 --data_dir /data/PublicDatasets/cifar100 --arch CIFAR_ResNet18 --loss_lambda 0.0 --alpha 0.0 --dense --batch_size 128 --epochs 200 --desc baseline
 
 train_ZipfsLS_cifar100_resnet18:
-	python3 train.py --dataset CIFAR100 --data_dir cifar100_data --arch CIFAR_ResNet18 --loss_lambda 0.1 --alpha 0.1 --dense --batch_size 128 --epochs 200 --desc ZipfLS
+	python3 train.py --dataset CIFAR100 --data_dir /data/PublicDatasets/cifar100 --arch CIFAR_ResNet18 --loss_lambda 0.1 --alpha 0.1 --dense --batch_size 128 --epochs 200 --desc ZipfLS
 
 train_baseline_cifar100_densenet121:
-	python3 train.py --dataset CIFAR100 --data_dir cifar100_data --arch CIFAR_DenseNet121 --loss_lambda 0.0 --alpha 0.0 --dense --batch_size 128 --epochs 200 --desc baseline
+	python3 train.py --dataset CIFAR100 --data_dir /data/PublicDatasets/cifar100 --arch CIFAR_DenseNet121 --loss_lambda 0.0 --alpha 0.0 --dense --batch_size 128 --epochs 200 --desc baseline
 
 train_ZipfsLS_cifar100_densenet121:
-	python3 train.py --dataset CIFAR100 --data_dir cifar100_data --arch CIFAR_DenseNet121 --loss_lambda 0.1 --alpha 0.1 --dense --batch_size 128 --epochs 200 --desc ZipfLS
+	python3 train.py --dataset CIFAR100 --data_dir /data/PublicDatasets/cifar100 --arch CIFAR_DenseNet121 --loss_lambda 0.1 --alpha 0.1 --dense --batch_size 128 --epochs 200 --desc ZipfLS
 
 
 train_baseline_tinyimagenet_resnet18:

@@ -103,8 +103,8 @@ def load_dataset(name, data_dir, batch_size, workers):
     else:
         raise NotImplementedError('Not Defined this Dataset')
 
-    train_sampler = data.RandomSampler(train_dataset, batch_size=batch_size)
+    train_sampler = data.Infinite(data.RandomSampler(train_dataset, batch_size=batch_size, drop_last=True))
     test_sampler = data.SequentialSampler(test_dataset, batch_size=batch_size)
     train_dataloader = data.DataLoader(train_dataset, train_sampler, train_transform, num_workers=workers)
     test_dataloader = data.DataLoader(test_dataset, test_sampler, test_transform, num_workers=workers)
-    return train_dataloader, test_dataloader, num_classes
+    return train_dataloader, test_dataloader, num_classes, len(train_dataset)

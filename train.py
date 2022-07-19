@@ -15,15 +15,15 @@ from datasets import load_dataset
 import models
 logging = megengine.logger.get_logger()
 
-def train(optimizer, dataset, base_lr, train_dataloader, gm, model, train_writer, epoch, nums_epoch, loss_lambda, alpha, dense_rank):
+def train(optimizer, dataset, base_lr, train_queue, minibatch_count, gm, model, train_writer, epoch, nums_epoch, loss_lambda, alpha, dense_rank):
     model.train()
     lr = utils.adjust_learning_rate(dataset, optimizer, epoch, base_lr, nums_epoch)
     for param_group in optimizer.param_groups:
         param_group['lr'] = lr
     training_loss = 0
     nums_train_correct, nums_train_example = 0, 0
-    minibatch_count = len(train_dataloader)
-    for i, data in enumerate(train_dataloader):
+    for i in range(minibatch_count):
+        data = next(train_queue)
         image, labels = data[:2]
         image = megengine.Tensor(image, dtype='float32')
         labels = megengine.Tensor(labels, dtype='int32')
@@ -71,6 +71,7 @@ def train(optimizer, dataset, base_lr, train_dataloader, gm, model, train_writer
             training_acc = nums_train_correct / nums_train_example
             training_loss /= nums_train_example
             logging.info(f'Epoch = {epoch}, '
+                    f'process = {i} / {minibatch_count}, '
                     f'train_loss = {training_loss:.3f}, '
                     f'train_acc = {training_acc:.3f}, '
                     f'lr = {lr:.3f}, '
@@ -128,7 +129,10 @@ def worker(args):
         train_writer = SummaryWriter(os.path.join(log_dir, 'train.events'))
         val_writer = SummaryWriter(os.path.join(log_dir, 'val.events'))
 
-    train_dataloader, test_dataloader, num_classes = load_dataset(args.dataset, args.data_dir, args.batch_size, args.workers)  
+    train_dataloader, test_dataloader, num_classes, dataset_size = load_dataset(args.dataset, args.data_dir, args.batch_size, args.workers)  
+
+    train_queue = iter(train_dataloader)  
+    steps_per_epoch = dataset_size // (dist.get_world_size() * args.batch_size)
 
     model = models.load_model(args.arch, num_classes, upsample=args.upsample)
     # Sync parameters and buffers
@@ -150,7 +154,7 @@ def worker(args):
     # Training and validation
     best_acc = 0.0
     for epoch in range(args.epochs):
-        train(optimizer, args.dataset, args.lr, train_dataloader, gm, model, train_writer, 
+        train(optimizer, args.dataset, args.lr, train_queue, steps_per_epoch, gm, model, train_writer, 
             epoch, args.epochs, args.loss_lambda, args.alpha, args.dense)
         best_acc= evaluate(model, test_dataloader, epoch, val_writer, best_acc)
 
