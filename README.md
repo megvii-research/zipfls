@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 This repo is the official megengine implementation of the ECCV2022 paper: Efficient One Pass Self-distillation with Zipf's Label Smoothing. The pytorch implementation version will be released one month later and we guarantee that performances can be matched with megengine version.
 
 # Zipf's LS: Efficient One Pass Self-distillation with Zipf's Label Smoothing
@@ -26,6 +25,3 @@ python3 train.py --dataset CIFAR100 --data_dir cifar100_data --arch CIFAR_ResNet
 See more examples in [Makefile](Makefile).
 # Liscense
 Zipf's LS is released under the Apache 2.0 license. See [LICENSE](LICENSE) for details.
-=======
-# zipfls_eccv2022
->>>>>>> 8f461a38d557fec18c9b371b31bf6e9f8125a559
