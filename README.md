@@ -16,10 +16,12 @@ This repo is the official megengine implementation of the ECCV2022 paper: Effici
 | **Megengine Zipf's LS** | **79.85±0.27**    | **62.35±0.32**   | **77.08±0.28** | **59.01±0.23**   |
 
 ## Training
-```
-### train_baseline_cifar100_resnet18:
+train_baseline_cifar100_resnet18:
+```bash
 python3 train.py --dataset CIFAR100 --data_dir cifar100_data --arch CIFAR_ResNet18 --loss_lambda 0.0 --alpha 0.0 --dense
-### train_ZipfsLS_cifar100_resnet18:
+```
+train_ZipfsLS_cifar100_resnet18:
+```bash
 python3 train.py --dataset CIFAR100 --data_dir cifar100_data --arch CIFAR_ResNet18 --loss_lambda 0.1 --alpha 0.1 --dense
 ```
 See more examples in [Makefile](Makefile).
