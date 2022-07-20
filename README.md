@@ -18,11 +18,11 @@ This repo is the official megengine implementation of the ECCV2022 paper: Effici
 ## Training
 train_baseline_cifar100_resnet18:
 ```bash
-python3 train.py --dataset CIFAR100 --data_dir cifar100_data --arch CIFAR_ResNet18 --loss_lambda 0.0 --alpha 0.0 --dense
+python3 train.py --ngpus 1 --dataset CIFAR100 --data_dir cifar100_data --arch CIFAR_ResNet18 --loss_lambda 0.0 --alpha 0.0 --dense
 ```
 train_ZipfsLS_cifar100_resnet18:
 ```bash
-python3 train.py --dataset CIFAR100 --data_dir cifar100_data --arch CIFAR_ResNet18 --loss_lambda 0.1 --alpha 0.1 --dense
+python3 train.py --ngpus 1 --dataset CIFAR100 --data_dir cifar100_data --arch CIFAR_ResNet18 --loss_lambda 0.1 --alpha 0.1 --dense
 ```
 See more examples in [Makefile](Makefile).
 # Liscense
