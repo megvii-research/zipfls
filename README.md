@@ -4,8 +4,8 @@ This repo is the officialimplementation of the ECCV2022 paper: Efficient One Pas
 # [Zipf's LS: Efficient One Pass Self-distillation with Zipf's Label Smoothing](https://arxiv.org/abs/2207.12980)
 
 ## Framework & Comparison
-<div style="text-align:center"><img src="pics/framework.png" width="100%" ></div>
-<div style="text-align:center"><img src="pics/comparison.png" width="100%" ></div>
+<div style="text-align:center"><img src="megengine_zipfls/pics/framework.png" width="100%" ></div>
+<div style="text-align:center"><img src="megengine_zipfls/pics/comparison.png" width="100%" ></div>
 
 \[2022.9\] Pytorch Zipf's label smoothing is uploaded!
 
