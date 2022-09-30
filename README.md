@@ -1,10 +1,15 @@
-This repo is the official megengine implementation of the ECCV2022 paper: Efficient One Pass Self-distillation with Zipf's Label Smoothing. The pytorch implementation version will be released one month later and we guarantee that performances can be matched with megengine version.
+
+This repo is the officialimplementation of the ECCV2022 paper: Efficient One Pass Self-distillation with Zipf's Label Smoothing. 
 
 # [Zipf's LS: Efficient One Pass Self-distillation with Zipf's Label Smoothing](https://arxiv.org/abs/2207.12980)
 
 ## Framework & Comparison
 <div style="text-align:center"><img src="pics/framework.png" width="100%" ></div>
 <div style="text-align:center"><img src="pics/comparison.png" width="100%" ></div>
+
+\[2022.9\] Pytorch Zipf's label smoothing is uploaded!
+
+\[2022.7\] MegEngine Zipf's label smoothing is uploaded!
 
 ## Main Results
 | Method              | DenseNet121   | DenseNet121  | ResNet18   | ResNet18     |
@@ -24,6 +29,6 @@ train_ZipfsLS_cifar100_resnet18:
 ```bash
 python3 train.py --ngpus 1 --dataset CIFAR100 --data_dir cifar100_data --arch CIFAR_ResNet18 --loss_lambda 0.1 --alpha 0.1 --dense
 ```
-See more examples in [Makefile](Makefile).
+See more examples in [Makefile](megengine_zipfls/Makefile).
 # Liscense
 Zipf's LS is released under the Apache 2.0 license. See [LICENSE](LICENSE) for details.
