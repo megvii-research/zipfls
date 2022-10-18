@@ -1,5 +1,5 @@
 
-This repo is the officialimplementation of the ECCV2022 paper: Efficient One Pass Self-distillation with Zipf's Label Smoothing. 
+This repo is the official implementation of the ECCV2022 paper: Efficient One Pass Self-distillation with Zipf's Label Smoothing. 
 
 # [Zipf's LS: Efficient One Pass Self-distillation with Zipf's Label Smoothing](https://arxiv.org/abs/2207.12980)
 
