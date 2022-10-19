@@ -7,7 +7,7 @@ This repo is the official implementation of the ECCV2022 paper: Efficient One Pa
 <div style="text-align:center"><img src="megengine_zipfls/pics/framework.png" width="100%" ></div>
 <div style="text-align:center"><img src="megengine_zipfls/pics/comparison.png" width="100%" ></div>
 
-\[2022.9\] Pytorch Zipf's label smoothing is uploaded!
+\[2022.9\] Pytorch Zipf's label smoothing is uploaded! CIFAR, TinyImageNet, ImageNet,INAT-21 are now supported by our training codes.
 
 \[2022.7\] MegEngine Zipf's label smoothing is uploaded!
 
